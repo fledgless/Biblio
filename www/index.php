@@ -1,9 +1,20 @@
-<?php ob_start() ?>
-
-
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste, quam doloribus. Ipsum aspernatur ratione voluptas minima possimus quod quasi deleniti odio accusantium, ea molestias officiis adipisci recusandae, obcaecati nam nisi?</p>
-
 <?php
-$titre = "Accueil";
-$content = ob_get_clean();
-require_once "template.php";
+
+if (empty($_GET['page'])){
+    require "views/accueil.view.php";
+} else {
+    switch ($_GET['page']) {
+        case 'accueil':
+            require "views/accueil.view.php";
+            break;
+        case 'livres':
+            require "views/livres.view.php";
+            break;
+        case 'a-propos':
+            require "views/a-propos.view.php";
+            break;
+        default:
+            require "views/error.view.php";
+            break;
+    }
+}

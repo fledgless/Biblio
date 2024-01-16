@@ -19,11 +19,14 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                 <a class="nav-link active" href="/">Accueil
-                    <span class="visually-hidden">(current)</span>
+                    <span class="visually-hidden"></span>
                 </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="livres.php">Livres</a>
+                <a class="nav-link" href="livres">Livres</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="a-propos">A-propos</a>
                 </li>
             </div>
         </div>
