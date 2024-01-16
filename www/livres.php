@@ -1,4 +1,5 @@
 <?php 
+
 require_once "Livre.class.php";
 
 $l1 = new Livre(1, "apprendre-css.png", "Apprendre le CSS", 200);
@@ -10,6 +11,7 @@ $l6 = new Livre(6, "apprendre-wordpress.png", "Apprendre Wordpress", 400);
 
 require_once "LivreManager.class.php";
 $livreManager = new LivreManager;
+
 $livreManager->ajouterLivre($l1);
 $livreManager->ajouterLivre($l2);
 $livreManager->ajouterLivre($l3);
