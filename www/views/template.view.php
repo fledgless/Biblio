@@ -28,10 +28,16 @@
                 <li class="nav-item">
                 <a class="nav-link" href="a-propos">A-propos</a>
                 </li>
+                <!-- ajout bouton connexion pour pouvoir essayer la manip de connexion puisque session_destroy ne fonctionne pas et livres ne redirige plus vers connexion à l'initialisation du serveur -->
+                <li class="nav-item">
+                <a class="nav-link" href="connexion">Connexion</a>
+                </li>
+                <!-- déconnexion ne disparait plus parce que ne se déconnecte pas -->
+                <!-- redirige bien vers connexion mais ne déconnecte pas -->
                 <?php
-                    if (!isset($_SESSION['utilisateur'])) {
+                    if (!isset($_SESSION['utilisateur']['isValide'])) {
                         echo '<li class="nav-item">
-                        <a class="nav-link" href="/connexion.php?action=deconnexion">Se déconnecter</a>
+                        <a class="nav-link" href="connexion?action=deconnexion">Se déconnecter</a>
                         </li>';
                     }
                 ?>

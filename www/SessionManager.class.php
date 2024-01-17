@@ -1,7 +1,6 @@
 <?php
 
 require_once "ConnexionManager.class.php";
-require_once "function.php";
 
 class SessionManager extends ConnexionManager {
     private array $utilisateurs;
@@ -27,8 +26,8 @@ class SessionManager extends ConnexionManager {
     public function verif($pseudo, $passwrd) {
         $sql = "SELECT * FROM User WHERE pseudo = '$pseudo' AND passwrd = '$passwrd'";
         $query = $this->getConnexionDbb()->query($sql);
- 
-        if($query->num_rows > 0){
+        // erreur num_rows
+        if($query->num_rows != 0){
             $row = $query->fetch_array();
             return $row['id'];
         }
