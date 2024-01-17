@@ -1,6 +1,6 @@
 <?php
 
-abstract class ConnexionManager {
+class ConnexionManager {
     private static $connexion;
 
     public static function setConnexionDbb() {

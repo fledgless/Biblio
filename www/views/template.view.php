@@ -28,6 +28,13 @@
                 <li class="nav-item">
                 <a class="nav-link" href="a-propos">A-propos</a>
                 </li>
+                <?php
+                    if (!isset($_SESSION['utilisateur'])) {
+                        echo '<li class="nav-item">
+                        <a class="nav-link" href="/connexion.php?action=deconnexion">Se déconnecter</a>
+                        </li>';
+                    }
+                ?>
             </div>
         </div>
     </nav>
