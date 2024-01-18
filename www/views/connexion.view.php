@@ -1,24 +1,26 @@
-<?php ob_start() ?>
-<?php session_start();
-if(isset($_GET['action']) && $_GET['action'] === "deconnexion") {
-  session_destroy();
-  header("location: connexion");
-//   ne fonctionne pas, reste connecté même après avoir docker-compose down + suppression des images
-} ?>
+<?php 
 
-<?php
-require_once 'User.class.php';
-require_once 'SessionManager.class.php';
+require_once 'UserManager.class.php';
+$userManager = new UserManager;
 
-if($_POST) {
-    $newSession = new SessionManager;
-    $newSession->chargementUtilisateur();
-    $newSession->verif($_POST['pseudo'], $_POST['passwrd']);
+if(isset($_SESSION['user'])) {
+    header('location: /');
+}
+
+if(isset($_POST['pseudo'])) {
+    $userManager->setUser($_POST['pseudo'], $_POST['passwrd']); 
+    $userEnCours = $userManager->getUser();
+    if ($userEnCours != null) {
+        foreach($userEnCours as $attribut => $valeur) {
+            $_SESSION['user'][$attribut] = $valeur;
+        }
+    }
     header("location: livres");
-    // connexion fonctionne, redirige vers livres
 }
 
 ?>
+
+<?php ob_start() ?>
 
 <p>Pour accéder à ce contenu, veuillez-vous connecter :</p>
 

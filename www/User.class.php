@@ -1,21 +1,21 @@
 <?php
 
 class User {
-    private int $userId;
-    private string $pseudo;
-    private string $email;
+    public int $userId;
+    public string $pseudo;
+    public string $email;
     private string $passwrd;
-    private bool $estValide;
-    private bool $estAdmin;
+    public bool $estValide;
+    public bool $estAdmin;
 
-    public function __construct(int $userId, string $pseudo, string $email, string $passwrd, bool $estValide, bool $estAdmin)
+    public function __construct(int $userId, string $pseudo, string $email, string $passwrd)
     {
         $this->userId = $userId;
         $this->pseudo = $pseudo;
         $this->email = $email;
         $this->passwrd = $passwrd;
-        $this->estValide = $estValide;
-        $this->estAdmin = $estAdmin;
+        $this->estValide = false;
+        $this->estAdmin = false;
     }
 
     /**
