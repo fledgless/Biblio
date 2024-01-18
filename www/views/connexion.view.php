@@ -15,7 +15,7 @@ if(isset($_POST['pseudo'])) {
             $_SESSION['user'][$attribut] = $valeur;
         }
     }
-    header("location: livres");
+    header("location: /");
 }
 
 ?>

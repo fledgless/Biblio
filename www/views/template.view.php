@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Biblio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
 
     <!-- <?php echo $content ?> -->
 <div id="container" class="m-2">
-    <h1 class="rounded border border-dark p-2 m-2 text-center text-white bg-info"><?= $titre ?></h1>
+    <h1 class="rounded border border-dark p-2 m-2 text-center text-white bg-primary"><?= $titre ?></h1>
     <?= $content ?>
 </div>
     
