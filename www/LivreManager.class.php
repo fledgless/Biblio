@@ -1,11 +1,12 @@
 <?php
-
 require_once "ConnexionManager.class.php";
 
-class LivreManager extends ConnexionManager {
+class LivreManager extends ConnexionManager 
+{
     private array $livres;
 
-    public function ajouterLivre($nouveauLivre) {
+    public function ajouterLivre($nouveauLivre) 
+    {
         $this->livres[] = $nouveauLivre;
     }
 

@@ -21,13 +21,13 @@ $livreManager->chargementLivres();
     <?php 
     $livresEnCours = $livreManager->getLivres();
     foreach($livresEnCours as $livre) : ?>
-    <tr>
-        <td class="align-middle"><img src="public\images\<?php echo $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>
-        <td class="align-middle"><?php echo $livre->getTitre(); ?></td>
-        <td class="align-middle"><?php echo $livre->getNbPages(); ?></td>
-        <td class="align-middle"><a href="#" class="btn btn-warning">Modifier</a></td>
-        <td class="align-middle"><a href="#" class="btn btn-danger">Supprimer</a></td>
-    </tr>
+        <tr>
+            <td class="align-middle"><img src="public/images/<?php echo $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>
+            <td class="align-middle"><?php echo $livre->getTitre(); ?></td>
+            <td class="align-middle"><?php echo $livre->getNbPages(); ?></td>
+            <td class="align-middle"><a href="#" class="btn btn-warning">Modifier</a></td>
+            <td class="align-middle"><a href="#" class="btn btn-danger">Supprimer</a></td>
+        </tr>
     <?php endforeach ?>
 </table>
 <a href="#" class="btn btn-success d-block">Ajouter</a>

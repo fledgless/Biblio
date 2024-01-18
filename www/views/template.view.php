@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    <meta name="description" content="Site sur rien du tout">
+    <meta name="keywords" content="livres, science-fiction">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- based ccs bootstrap by bootswatch -->
     <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
     <title>Biblio | <?= $titre ?></title>
 </head>
@@ -13,7 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Biblio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
