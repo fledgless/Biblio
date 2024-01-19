@@ -30,7 +30,7 @@
                 <?php endif; ?>
                 <?php if (isset($_SESSION['user'])) : ?>
                 <li class="nav-item">
-                <a class="nav-link" href="livres">Livres</a>
+                <a class="nav-link" href="<?= SITE_URL ?>livres">Livres</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link active" href="deconnexion">Se déconnecter</a>

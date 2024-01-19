@@ -1,21 +1,7 @@
 <?php 
 
-require_once 'UserManager.class.php';
-$userManager = new UserManager;
-
 if(isset($_SESSION['user'])) {
-    header('location: /');
-}
-
-if(isset($_POST['pseudo'])) {
-    $userManager->setUser($_POST['pseudo'], $_POST['passwrd']); 
-    $userEnCours = $userManager->getUser();
-    if ($userEnCours != null) {
-        foreach($userEnCours as $attribut => $valeur) {
-            $_SESSION['user'][$attribut] = $valeur;
-        }
-    }
-    header("location: /");
+  header('location: /');
 }
 
 ?>
