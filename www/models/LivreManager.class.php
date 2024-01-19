@@ -1,5 +1,6 @@
 <?php
-require_once "ConnexionManager.class.php";
+require_once "models/ConnexionManager.class.php";
+require_once "models/Livre.class.php";
 
 class LivreManager extends ConnexionManager 
 {

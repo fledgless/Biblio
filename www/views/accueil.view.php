@@ -1,13 +1,6 @@
 <?php ob_start(); ?>
-<?php
-require_once "Livre.class.php";
-require_once "LivreManager.class.php"; 
-$livreManager = new LivreManager;
-$livreManager->chargementLivres();
-?>
 
 <?php 
-    $livresEnCours = $livreManager->getLivres(); 
     if (isset($_SESSION['user'])) :?>
     <?php foreach($livresEnCours as $livre) : ?>
     <div class="card mb-3">

@@ -1,12 +1,7 @@
 <?php 
-
 if(!isset($_SESSION['user'])) {
     header('location: /');
 }
-require_once "Livre.class.php";
-require_once "LivreManager.class.php";
-$livreManager = new LivreManager;
-$livreManager->chargementLivres();
 ?>
 
 <?php ob_start() ?>
@@ -18,8 +13,7 @@ $livreManager->chargementLivres();
         <th>Nombre de pages</th>
         <th colspan="2">Actions</th>
     </tr>
-    <?php 
-    $livresEnCours = $livreManager->getLivres();
+    <?php
     foreach($livresEnCours as $livre) : ?>
         <tr>
             <td class="align-middle"><img src="public/images/<?php echo $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>

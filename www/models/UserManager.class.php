@@ -1,7 +1,7 @@
 <?php
 
-require_once "User.class.php";
-require_once "ConnexionManager.class.php";
+require_once "models/User.class.php";
+require_once "models/ConnexionManager.class.php";
 
 class UserManager extends ConnexionManager {
     private object $user;
