@@ -40,7 +40,7 @@ try {
                 $userController->connexion();
                 break;
             case 'deconnexion':
-                $usersManager->deconnexion();
+                $userController->deconnexion();
                 break;
             default:
                 throw new Exception();

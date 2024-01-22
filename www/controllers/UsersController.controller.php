@@ -4,6 +4,11 @@ require_once "models/UserManager.class.php";
 class UsersController {
     private UserManager $userManager;
 
+    public function __construct()
+    {
+        $this->userManager = new UserManager;
+    }
+
     public function connexion() {
         require "views/connexion.view.php";
     }
@@ -20,6 +25,13 @@ class UsersController {
             }
         }
     }   
+
+    public function deconnexion()
+    {
+        session_destroy();
+        header("location: /");
+    }
+
 
     /**
      * Get the value of userManager

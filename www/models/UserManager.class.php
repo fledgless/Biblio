@@ -23,12 +23,6 @@ class UserManager extends ConnexionManager {
         }
     }
 
-    public function deconnexion()
-    {
-        session_destroy();
-        header("location: /");
-    }
-
     /**
      * Get the value of user
      *

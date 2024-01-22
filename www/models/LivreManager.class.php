@@ -4,7 +4,7 @@ require_once "models/Livre.class.php";
 
 class LivreManager extends ConnexionManager 
 {
-    private array $livres;
+    private array $livres = [];
 
     public function ajouterLivre($nouveauLivre) 
     {
