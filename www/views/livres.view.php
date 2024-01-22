@@ -4,7 +4,7 @@ if(!isset($_SESSION['user'])) {
 }
 ?>
 
-<?php ob_start() ?>
+<?php ob_start(); ?>
 
 <table class="table table-center">
     <tr class="table-dark">
@@ -16,7 +16,7 @@ if(!isset($_SESSION['user'])) {
     <?php
     foreach($livresEnCours as $livre) : ?>
         <tr>
-            <td class="align-middle"><img src="public/images/<?php echo $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>
+            <td class="align-middle"><img src="public/images/<?= $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>
             <td class="align-middle"><?php echo $livre->getTitre(); ?></td>
             <td class="align-middle"><?php echo $livre->getNbPages(); ?></td>
             <td class="align-middle"><a href="#" class="btn btn-warning">Modifier</a></td>

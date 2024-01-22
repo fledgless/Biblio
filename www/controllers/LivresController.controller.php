@@ -6,7 +6,11 @@ class LivresController {
 
     public function __construct() {
         $this->livresManager = new LivreManager;
-        $this->livresManager->chargementLivres();
+        if (isset($_SESSION["user"])) {
+            $id_user = $_SESSION['user']['userId'];
+            $this->livresManager->chargementLivres($id_user);
+        }
+        
     }
 
     public function afficherLivres() {

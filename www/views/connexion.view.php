@@ -1,8 +1,18 @@
 <?php 
+require_once "models/ConnexionManager.class.php";
+require_once "controllers/UsersController.controller.php";
 
 if(isset($_SESSION['user'])) {
   header('location: /');
 }
+
+$userManager = new UserManager;
+$usersController = new UsersController;
+if (isset($_POST['pseudo'])) {
+  $usersController->connexionUser($_POST['pseudo'], $_POST['passwrd']);
+}
+
+
 
 ?>
 

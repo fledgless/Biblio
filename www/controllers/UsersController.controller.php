@@ -1,14 +1,14 @@
 <?php
 require_once "models/UserManager.class.php";
 
-class UserController {
-    private $userManager;
+class UsersController {
+    private UserManager $userManager;
 
-    public function __construct() {
-        $this->userManager = new UserManager;
+    public function connexion() {
+        require "views/connexion.view.php";
     }
     
-    public function utilisateur() {
+    public function connexionUser($userId, $passwrd) {
         if(isset($_POST['pseudo'])) {
             $this->userManager->setUser($_POST['pseudo'], $_POST['passwrd']); 
             $userEnCours = $this->userManager->getUser();
@@ -16,9 +16,8 @@ class UserController {
                 foreach($userEnCours as $attribut => $valeur) {
                     $_SESSION['user'][$attribut] = $valeur;
                 }
+                header("location: /");
             }
-            header("location: /");
-            require "views/connexion.view.php";
         }
     }   
 

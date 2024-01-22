@@ -11,9 +11,9 @@ class LivreManager extends ConnexionManager
         $this->livres[] = $nouveauLivre;
     }
 
-    public function chargementLivres() {
+    public function chargementLivres($id_user) {
         $connexion = $this->getConnexionDbb();
-        $req = $connexion->prepare("SELECT * FROM livre LIMIT 0,10");
+        $req = $connexion->prepare("SELECT * FROM livre where id_user = $id_user");
         $req->execute();
         $livresImportes = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();

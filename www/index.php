@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-define("SITE_URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+define('SITE_URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 require_once "models/UserManager.class.php";
 $usersManager = new UserManager;
 require_once "controllers/LivresController.controller.php";
 $livreController = new LivresController;
-require_once "controllers/UserController.controller.php";
-$userController = new UserController;
+require_once "controllers/UsersController.controller.php";
+$userController = new UsersController;
 
 try {
     if (empty($_GET['page'])){
@@ -37,7 +37,7 @@ try {
                 require "views/a-propos.view.php";
                 break;
             case 'connexion':
-                $userController->utilisateur();
+                $userController->connexion();
                 break;
             case 'deconnexion':
                 $usersManager->deconnexion();

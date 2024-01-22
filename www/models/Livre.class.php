@@ -5,6 +5,7 @@ class Livre {
     private string $image;
     private string $titre;
     private int $nbPages;
+    private int $id_user;
 
     public function __construct(int $id, string $image, string $titre, int $nbPages)
     {
@@ -95,6 +96,27 @@ class Livre {
      */
     public function setNbPages(int $nbPages): self {
         $this->nbPages = $nbPages;
+        return $this;
+    }
+
+    /**
+     * Get the value of id_user
+     *
+     * @return int
+     */
+    public function getIdUser(): int {
+        return $this->id_user;
+    }
+
+    /**
+     * Set the value of id_user
+     *
+     * @param int $id_user
+     *
+     * @return self
+     */
+    public function setIdUser(int $id_user): self {
+        $this->id_user = $id_user;
         return $this;
     }
 }
