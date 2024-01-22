@@ -1,35 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
-    <title>Biblio</title>
-</head>
+define('SITE_URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+require_once "models/UserManager.class.php";
+$usersManager = new UserManager;
+require_once "controllers/LivresController.controller.php";
+$livreController = new LivresController;
+require_once "controllers/UsersController.controller.php";
+$userController = new UsersController;
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Biblio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-            <a class="nav-link active" href="/">Accueil
-                <span class="visually-hidden">(current)</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Livres</a>
-            </li>
-        </div>
-    </div>
-    </nav>
-    <!-- javascript bootstrap version 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-
-</html>
+try {
+    if (empty($_GET['page'])){
+        $livreController->afficherLivresAccueil();
+    } else {
+        $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
+        switch ($url[0]) {
+            case 'accueil':
+                $livreController->afficherLivresAccueil();
+                break;
+            case 'livres':
+                if(empty($url[1])) {
+                    $livreController->afficherLivres();
+                } else if ($url[1] === "l") {
+                    echo "Afficher livre";
+                } else if ($url[1] === "a") {
+                    echo "ajout livre";
+                } else if ($url[1] === "m") {
+                    echo "Modifier livre";
+                } else if ($url[1] === "s") {
+                    echo "Supprimer livre";
+                } else {
+                    throw new Exception();
+                }
+                break;
+            case 'a-propos':
+                require "views/a-propos.view.php";
+                break;
+            case 'connexion':
+                $userController->connexion();
+                break;
+            case 'deconnexion':
+                $userController->deconnexion();
+                break;
+            default:
+                throw new Exception();
+                break;
+        }
+    }
+} catch(Exception $e) {
+    require "views/error.view.php";
+}
