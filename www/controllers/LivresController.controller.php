@@ -18,7 +18,16 @@ class LivresController {
     }
 
     public function afficherLivresAccueil() {
-        $livresEnCours = $this->livresManager->getLivres();
+        $livresAll = $this->livresManager->chargementLivresComplet();
         require "views/accueil.view.php";
+    }
+
+    public function afficherLivre($id_livre) {
+        $livreEnCours = $this->livresManager->getLivreById($id_livre);
+        require ($livreEnCours != null) ? "views/afficherLivre.view.php" : "views/error.view.php";
+    }
+
+    public function afficherPageError() {
+        require "views/error.view.php";
     }
 }

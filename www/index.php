@@ -15,16 +15,13 @@ try {
     } else {
         $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
         switch ($url[0]) {
-            case 'accueil':
-                $livreController->afficherLivresAccueil();
-                break;
             case 'livres':
                 if(empty($url[1])) {
                     $livreController->afficherLivres();
                 } else if ($url[1] === "l") {
-                    echo "Afficher livre";
+                    $livreController->afficherLivre(intval($url[2]));
                 } else if ($url[1] === "a") {
-                    echo "ajout livre";
+                    $livreController->ajoutLivre();
                 } else if ($url[1] === "m") {
                     echo "Modifier livre";
                 } else if ($url[1] === "s") {
@@ -48,5 +45,5 @@ try {
         }
     }
 } catch(Exception $e) {
-    require "views/error.view.php";
+    $livreController->afficherPageError();
 }

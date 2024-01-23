@@ -1,18 +1,20 @@
 <?php
 
 class Livre {
-    private int $id;
+    private int $id_livre;
     private string $image;
     private string $titre;
     private int $nbPages;
     private int $id_user;
+    private string $uploader;
 
-    public function __construct(int $id, string $image, string $titre, int $nbPages)
+    public function __construct(int $id_livre, string $image, string $titre, int $nbPages, string $uploader = "")
     {
-        $this->id = $id;
+        $this->id_livre = $id_livre;
         $this->image = $image;
         $this->titre = $titre;
         $this->nbPages = $nbPages;
+        $this->uploader = $uploader;
     }
 
     /**
@@ -21,7 +23,7 @@ class Livre {
      * @return int
      */
     public function getId(): int {
-        return $this->id;
+        return $this->id_livre;
     }
 
     /**
@@ -31,8 +33,8 @@ class Livre {
      *
      * @return self
      */
-    public function setId(int $id): self {
-        $this->id = $id;
+    public function setId(int $id_livre): self {
+        $this->id_livre = $id_livre;
         return $this;
     }
 
@@ -117,6 +119,27 @@ class Livre {
      */
     public function setIdUser(int $id_user): self {
         $this->id_user = $id_user;
+        return $this;
+    }
+
+    /**
+     * Get the value of uploader
+     *
+     * @return string
+     */
+    public function getUploader(): string {
+        return $this->uploader;
+    }
+
+    /**
+     * Set the value of uploader
+     *
+     * @param string $uploader
+     *
+     * @return self
+     */
+    public function setUploader(string $uploader): self {
+        $this->uploader = $uploader;
         return $this;
     }
 }

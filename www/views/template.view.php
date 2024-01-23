@@ -21,11 +21,11 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="a-propos">A-propos</a>
+                <a class="nav-link" href="<?= SITE_URL ?>a-propos">A-propos</a>
                 </li>
                 <?php if (!isset($_SESSION['user'])) : ?>
                 <li class="nav-item">
-                <a class="nav-link active" href="connexion">Connexion</a>
+                <a class="nav-link active" href="<?= SITE_URL ?>connexion">Connexion</a>
                 </li>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['user'])) : ?>
@@ -33,7 +33,7 @@
                 <a class="nav-link" href="<?= SITE_URL ?>livres">Livres</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="deconnexion">Se déconnecter</a>
+                <a class="nav-link active" href="<?= SITE_URL ?>deconnexion">Se déconnecter</a>
                 </li>';
                 <?php endif; ?>
             </div>

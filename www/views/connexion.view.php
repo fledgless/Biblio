@@ -7,12 +7,10 @@ if(isset($_SESSION['user'])) {
 }
 
 $userManager = new UserManager;
-$usersController = new UsersController;
+$userController = new UsersController;
 if (isset($_POST['pseudo'])) {
-  $usersController->connexionUser($_POST['pseudo'], $_POST['passwrd']);
+  $userController->connexionUser($_POST['pseudo'], $_POST['passwrd']);
 }
-
-
 
 ?>
 
