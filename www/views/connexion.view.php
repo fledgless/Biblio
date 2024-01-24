@@ -2,7 +2,7 @@
 require_once "controllers/users/UsersController.controller.php";
 $usersController = new UsersController;
 if (isset($_POST['identifiant'])) {
-    $usersController->connexionUser($_POST['pseudo'], $_POST['passwrd']);
+    $usersController->connexionUser($_POST['identifiant'], $_POST['password']);
 }
 
 ?>

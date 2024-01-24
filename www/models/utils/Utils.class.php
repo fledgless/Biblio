@@ -22,11 +22,8 @@ class Utils
             // création du répertoire /images si inexistant
             if (!file_exists($dir)) mkdir($dir, 0777);
 
-            // impossible dans notre cas
             if (file_exists($target_file)) throw new Exception("Le fichier existe déjà!");
 
-            // poids image => 2Mo maxi
-            // https://www.generationcyb.net/convertisseur-octet-ko-mo-go-to/
             if ($file['size'] > 2097152) throw new Exception("Le fichier est trop volumineux");
 
             // vérification extensions autorisées

@@ -35,7 +35,7 @@ class UsersController
     }
 
     public function profil() {
-        $userEnCours = $this->usersManager->getUser();
-        require ($userEnCours != null) ? "views/a-propos.php" : "views/error.view.php";
+        // $userEnCours = $this->usersManager->getUser();
+        require "views/a-propos.view.php";
     }
 }

@@ -15,7 +15,10 @@
             <label for="exampleInputImage" class="form-label mt-4">Votre image</label>
             <input type="file" name="image" class="form-control" id="exampleInputImages">
         </div>
-
+        <div class="form-group" data-quillbot-parent="O5rdH0_a-OnjtBR0O50vU">
+            <label for="exampleTextarea" class="form-label mt-4">Extrait</label>
+            <textarea name="excerpt" class="form-control" id="exampleTextarea" rows="5" data-gramm="false" wt-ignore-input="true" style="height: 75px;"></textarea>
+        </div>
         <button type="submit" class="btn btn-primary mt-4">Ajouter</button>
     </fieldset>
 </form>

@@ -50,10 +50,8 @@ class LivresController extends Utils
         $image = $_FILES['image'];
         $repertoire = "public/images/";
         $nomImage = Utils::uploadFile($image, $repertoire);
-        // envoie BDD
-        $this->livresManager->ajoutLivreBdd($_POST['titre'], intval($_POST['nbPages']), $nomImage, $_SESSION['user']['id']);
-        // appeler vue
-        header('location: livres');
+        $this->livresManager->ajoutLivreBdd($_POST['titre'], intval($_POST['nbPages']), $nomImage, $_POST['excerpt'], $_SESSION['user']['id']);
+        header('location: ' . SITE_URL . 'livres');
     }
 
 

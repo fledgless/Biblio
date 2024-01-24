@@ -25,10 +25,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= SITE_URL ?>livres">Livres</a>
                         </li>
-                    <?php endif; ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= SITE_URL ?>a-propos">A propos</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= SITE_URL ?>a-propos">A propos</a>
                     </li>
+                    <?php endif; ?>
                     <?php if (!isset($_SESSION['user'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="<?= SITE_URL ?>connexion">Se connecter</a>

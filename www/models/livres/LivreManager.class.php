@@ -53,13 +53,14 @@ class LivreManager extends ConnexionManager
         }
     }
 
-    public function ajoutLivreBdd($titre, $nbPages, $nomImage, $id_user)
+    public function ajoutLivreBdd($titre, $nbPages, $nomImage, $excerpt, $id_user)
     {
-        $req = "INSERT INTO biblio.livre (titre, nb_pages, image, id_user) VALUES(:titre, :nb_pages, :image, :id_user)";
+        $req = "INSERT INTO biblio.livre (titre, nb_pages, image, excerpt, id_user) VALUES(:titre, :nb_pages, :image,  :excerpt, :id_user)";
         $stmt = $this->getConnexionBdd()->prepare($req);
         $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
         $stmt->bindValue(":nb_pages", $nbPages, PDO::PARAM_INT);
         $stmt->bindValue(":image", $nomImage, PDO::PARAM_STR);
+        $stmt->bindValue(":excerpt", $excerpt, PDO::PARAM_STR);
         $stmt->bindValue(":id_user", $id_user, PDO::PARAM_INT);
         $resultat =  $stmt->execute();
         $stmt->closeCursor();
