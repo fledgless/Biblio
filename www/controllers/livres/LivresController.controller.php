@@ -54,7 +54,32 @@ class LivresController extends Utils
         header('location: ' . SITE_URL . 'livres');
     }
 
+    public function modifierLivre($id_livre) {
+        $livre = $this->livresManager->getLivreById($id_livre);
+        require "views/afficherModificationLivre.view.php";
+    }
 
+    public function modifierLivreValidation() {
+        $imageActuelle = $this->livresManager->getLivreById(intval($_POST['id_livre']))->getImage();
+        $file = $_FILES['image'];
+        if ($file['size'] > 0) {
+            unlink("public/images/" . $imageActuelle);
+            $repertoire = "public/images/";
+            $nomImageToAdd = Utils::uploadFile($file, $repertoire);
+        } else {
+            $nomImageToAdd = $imageActuelle;
+        }
+
+        $this->livresManager->modifierLivreBdd(intval($_POST['id_livre']), $_POST['titre'], intval($_POST['nbPages']), $nomImageToAdd, $_POST['excerpt'], $_SESSION['user']['id']);
+        header("location: " . SITE_URL . "livres");
+    }
+
+    public function supprimerLivre($id_livre) {
+        $nomImage = $this->livresManager->getLivreById($id_livre)->getImage();
+        unlink("public/images/" . $nomImage);
+        $this->livresManager->supprimerLivreBdd($id_livre);
+        header('location: ' . SITE_URL . 'livres');
+    }
 
     // public function ajoutFile($file, $dir)
     // {

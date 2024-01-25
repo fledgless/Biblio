@@ -72,6 +72,40 @@ class LivreManager extends ConnexionManager
         }
     }
 
+    public function modifierLivreBdd($id_livre, $titre, $nbPages, $nomImage, $excerpt, $id_user) {
+        $req = "UPDATE livre SET titre = :titre, nb_pages = :nb_pages, image = :image, excerpt = :excerpt, id_user = :id_user WHERE id_livre = :id_livre";
+        $stmt = $this->getConnexionBdd()->prepare($req);
+        $stmt->bindValue(":titre", $titre, PDO::PARAM_STR);
+        $stmt->bindValue(":nb_pages", $nbPages, PDO::PARAM_INT);
+        $stmt->bindValue(":image", $nomImage, PDO::PARAM_STR);
+        $stmt->bindValue(":excerpt", $excerpt, PDO::PARAM_STR);
+        $stmt->bindValue(":id_user", $id_user, PDO::PARAM_INT);
+        $stmt->bindValue(":id_livre", $id_livre, PDO::PARAM_INT);
+        $resultat =  $stmt->execute();
+        $stmt->closeCursor();
+
+        if ($resultat > 0) {
+            $this->getLivreById($id_livre)->setTitre($titre);
+            $this->getLivreById($id_livre)->setNbPages($nbPages);
+            $this->getLivreById($id_livre)->setImage($nomImage);
+            $this->getLivreById($id_livre)->setExcerpt($excerpt);
+            $this->getLivreById($id_livre)->setUploader($_SESSION['user']['pseudo']);
+        }
+    }
+
+    public function supprimerLivreBdd($id_livre) {
+        $req = "DELETE FROM livre WHERE id_livre = :id_livre";
+        $stmt = $this->getConnexionBdd()->prepare($req);
+        $stmt->bindValue(":id_livre", $id_livre, PDO::PARAM_INT);
+        $resultat =  $stmt->execute();
+        $stmt->closeCursor();
+
+        if ($resultat > 0) {
+            $livre = $this->getLivreById($id_livre);
+            unset($livre);
+        }
+    }
+
 
     /**
      * Get the value of livres

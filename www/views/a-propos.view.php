@@ -4,7 +4,7 @@
   <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
     Pseudo :
     <span class="badge bg-primary rounded-pill">
-        <? //= $userEnCours->getPseudo() ?>
+        <?= $_SESSION['user']['pseudo'] ?>
     </span>
   </li>
   <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
@@ -16,12 +16,12 @@
   <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
     Email : 
     <span class="badge bg-primary rounded-pill">
-        <? // = $userEnCours->getEmail() ?>
+        <?= $_SESSION['user']['email'] ?>
     </span>
   </li><li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
     Adresse :
     <span class="badge bg-primary rounded-pill">
-        <? // = $userEnCours->getAdresse() ?>
+        <?= $_SESSION['user']['adresse'] ?>
     </span>
   </li>
 </ul>

@@ -149,4 +149,16 @@ class Livre
         $this->excerpt = $excerpt;
         return $this;
     }
+
+    /**
+     * Set the value of uploader
+     *
+     * @param string $uploader
+     *
+     * @return self
+     */
+    public function setUploader(string $uploader): self {
+        $this->uploader = $uploader;
+        return $this;
+    }
 }

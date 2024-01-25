@@ -35,7 +35,6 @@ class UsersController
     }
 
     public function profil() {
-        // $userEnCours = $this->usersManager->getUser();
         require "views/a-propos.view.php";
     }
 }

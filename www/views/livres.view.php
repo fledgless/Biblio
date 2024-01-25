@@ -20,8 +20,12 @@ if (!isset($_SESSION['user'])) header("location: connexion")
             <td class="align-middle"><img src="<?= SITE_URL ?>public/images/<?php echo $livre->getImage(); ?>" height="60px" alt="Livre pour <?php echo $livre->getTitre(); ?>"></td>
             <td class="align-middle"><a href="<?= SITE_URL ?>livres/l/<?php echo $livre->getId(); ?>"><?php echo $livre->getTitre(); ?></a></td>
             <td class="align-middle"><?php echo $livre->getNbPages(); ?></td>
-            <td class="align-middle"><a href="#" class="btn btn-warning">Modifier</a></td>
-            <td class="align-middle"><a href="#" class="btn btn-danger">Supprimer</a></td>
+            <td class="align-middle"><a href="<?= SITE_URL ?>livres/m/<?php echo $livre->getId(); ?>" class="btn btn-warning">Modifier</a></td>
+            <td class="align-middle">
+                <form action="<?= SITE_URL ?>livres/s/<?php echo $livre->getId(); ?>" method="post" onsubmit="return confirm('Voulez-vous supprimer ce livre ?')">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
