@@ -6,7 +6,7 @@ class User
     public string $pseudo;
     private string $passwrd;
     public string $email;
-    private string $adresse;
+    public string $adresse;
     public bool $isValide;
 
     public function __construct(int $id, string $pseudo, string $passwrd, string $email, string $adresse)

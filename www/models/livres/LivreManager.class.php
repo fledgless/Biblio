@@ -64,6 +64,12 @@ class LivreManager extends ConnexionManager
         $stmt->bindValue(":id_user", $id_user, PDO::PARAM_INT);
         $resultat =  $stmt->execute();
         $stmt->closeCursor();
+
+        if ($resultat > 0) {
+            $id_livre = intval($this->getConnexionBdd()->lastInsertId());
+            $livre = new Livre($id_livre, $titre, $nomImage, $nbPages, $excerpt, $_SESSION['user']['pseudo']);
+            $this->ajouterLivre($livre);
+        }
     }
 
 
