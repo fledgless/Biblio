@@ -1,8 +1,8 @@
 <?php ob_start() ?>
 
-<p>Désolé, le contenu demandé n'est pas disponible.</p>
+<p>désolé .........</p>
 
 <?php
-$titre = "Erreur";
+$titre = "contenu introuvable";
 $content = ob_get_clean();
 require_once "template.view.php";

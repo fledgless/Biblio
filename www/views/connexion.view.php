@@ -1,38 +1,31 @@
-<?php 
-require_once "models/ConnexionManager.class.php";
-require_once "controllers/UsersController.controller.php";
-
-if(isset($_SESSION['user'])) {
-  header('location: /');
-}
-
-$userManager = new UserManager;
+<?php
+require_once "controllers/users/UsersController.controller.php";
 $usersController = new UsersController;
-if (isset($_POST['pseudo'])) {
-  $usersController->connexionUser($_POST['pseudo'], $_POST['passwrd']);
+if (isset($_POST['identifiant'])) {
+    $usersController->connexionUser($_POST['identifiant'], $_POST['password']);
 }
-
-
 
 ?>
 
 <?php ob_start() ?>
 
-<p>Pour accéder à ce contenu, veuillez-vous connecter :</p>
-
-<form method="post">
-  <div class="form-group">
-    <label class="form-label">Identifiant</label>
-    <input type="text" name="pseudo" minlength="1" class="form-control">
-  </div>
-  <div class="form-group">
-    <label class="form-label">Mot de passe</label>
-    <input name="passwrd" type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary">Se connecter</button>
+<form class="m-auto w-50" method="post" action="">
+    <fieldset>
+        <legend>Connexion</legend>
+        <div class="form-group">
+            <label for="exampleInputIdentifiant" class="form-label mt-4">Identifiant</label>
+            <input type="text" name="identifiant" class="form-control" id="exampleInputIdentifiant" aria-describedby="identifiantHelp" placeholder="Identifiant">
+            <small id="identifiantHelp" class="form-text text-muted">Saisissez l'identifiant choisi à l'inscription.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Se connecter</button>
+    </fieldset>
 </form>
 
 <?php
-$titre = "Connexion";
+$titre = "connexion";
 $content = ob_get_clean();
 require_once "template.view.php";
